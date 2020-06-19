@@ -94,12 +94,6 @@ func envReplacer(value string) string {
 
 }
 
-func check(e error) {
-	if e != nil {
-		panic(e)
-	}
-}
-
 func getEnv(key string, defaultVal string) string {
 	if value, exists := os.LookupEnv(key); exists {
 		return value
