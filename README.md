@@ -12,14 +12,23 @@ All profiles will by default pick variables from ```application.properties``` if
 To set environment variables use 
 ```SOME_CONFIG_KEY=${ENV_KEY_NAME:ENV_DEFAULT_VALUE_IF_NOT_FOUND}```
 
+To set which config to use 
+```use.profile=prod```
+
+Set ```use.profile=xxx``` the ```xxx``` config will be loaded from  ```application-xxx.properties``` 
+this can be set as dev, prod, staging or default. 
+
+
 ### How to Use 
 
 ```go 
 
 func main() {
-	config := appProps.UseProps("resources/application.properties") // your config chain is loaded here 
+	config := appProps.UseResource("resources/") // your config chain is loaded from this folder 
         // pass it with your function wherever you want to use it. 
         // to get any value from the config use 
         conigValue := config.Get("KEY_NAME") // returns a string 
+	// to check all available config values
+	config.Print()
 }
 ```
