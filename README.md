@@ -3,7 +3,7 @@ java like application properties for Golang. Hassle free config management for d
 
 ## Overview 
 
-Engineers coming from the Java spring boot background tend to put a lot of env config into ```application.properties``` and are used to it. this is a 
+Engineers coming from the maven/gradle background tend to put a lot of env config into ```application.properties``` and are used to it. this is a 
 micro-library to help you out with managing the configs in the same old ```application.properties```. 
 Managing multiple profiles is very easy just add profile name by application ```application-xxx.properties```
 by default application properties will be loaded which can then be guided by the profile to be used. 
