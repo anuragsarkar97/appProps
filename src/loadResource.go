@@ -10,7 +10,7 @@ import (
 
 func UseResource(resourceFolderPath string) Config {
 	var propList = make(map[string]string)
-	var accesptedProp string
+	var acceptedProp string
 	_, err := os.Stat(resourceFolderPath)
 	if os.IsNotExist(err) {
 		log.Printf("Folder does not exist, %s", err)
@@ -27,9 +27,9 @@ func UseResource(resourceFolderPath string) Config {
 			if file.Name() == "application.properties" {
 				availableConfig := useProps(resourceFolderPath + "/" + file.Name())
 				propList = availableConfig.appProp
-				accesptedProp = availableConfig.Get("use.profile")
+				acceptedProp = availableConfig.Get("use.profile")
 			} else {
-				if accesptedProp == getAppPropsType(file.Name()) {
+				if acceptedProp == getAppPropsType(file.Name()) {
 					newProps := useProps(resourceFolderPath + "/" + file.Name())
 					updateProps(propList, newProps.appProp)
 				}
